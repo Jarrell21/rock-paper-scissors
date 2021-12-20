@@ -22,13 +22,13 @@ function playRound (playerSelection, computerSelection){
     if (playerSelection === "ROCK" && computerSelection === "SCISSORS" || 
         playerSelection === "PAPER" && computerSelection === "ROCK" ||
         playerSelection === "SCISSORS" && computerSelection === "PAPER"){
-            playerWinsTheRound = true;
+        playerWinsTheRound = true;
         return `Player SCORES! ${playerSelection} beats ${computerSelection}`;
     } 
     else if (playerSelection === "ROCK"  && computerSelection === "PAPER" ||
             playerSelection === "PAPER" && computerSelection === "SCISSORS" ||
             playerSelection === "SCISSORS" && computerSelection === "ROCK"){
-                compWinsTheRound = true;
+        compWinsTheRound = true;
         return `Computer SCORES! ${computerSelection} beats ${playerSelection}`;
     } 
     else if (playerSelection === computerSelection){
@@ -52,19 +52,20 @@ function game(){
         playerSelection = prompt("Enter your selection (Rock/Paper/Scissors)");
         let playerSelectionCap = playerSelection.toUpperCase();
         
-        let comselect = computerPlay();
-        let com = playRound(playerSelectionCap, comselect);
-       
-        console.log(`Player: ${playerSelectionCap} | Computer: ${comselect}`)
-        console.log(com);
+        let computerSelection = computerPlay();
+        let round = playRound(playerSelectionCap, computerSelection);
+        
+        console.log(`Player: ${playerSelectionCap} | Computer: ${computerSelection}`)
+        console.log(round);
 
         // condition checking of the round winner
         if(playerWinsTheRound === true && compWinsTheRound === false){
             scoreOfPlayer++;
             console.log("+1 point for player")
-        } else if (playerWinsTheRound === false && compWinsTheRound === true){
+        } 
+        else if (playerWinsTheRound === false && compWinsTheRound === true){
             scoreOfComputer++;
-           console.log("+1 point for computer")
+            console.log("+1 point for computer")
         } 
         
         // outputs the current score
@@ -78,7 +79,8 @@ function game(){
     }
     else if(scoreOfPlayer < scoreOfComputer){
         console.log("Computer wins the match!")
-    } else console.log("DRAW :|")
+    }
+    else console.log("DRAW :|")
     
 }
 
