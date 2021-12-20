@@ -45,21 +45,26 @@ function game(){
     let scoreOfPlayer = 0, scoreOfComputer = 0;
     const rounds = 5;
 
-    // A loop that gives the number of rounds and the score of the players
+    // A loop that plays the game depending on the number of rounds given
     for(i = 1; i <= rounds; i++){
 
-        let com = playRound(playerSelectionCap, computerPlay());
-        // outputs the current round number and the players' selection
         console.log(`Round ${i}`);
+        playerSelection = prompt("Enter your selection (Rock/Paper/Scissors)");
+        let playerSelectionCap = playerSelection.toUpperCase();
+        
+        let comselect = computerPlay();
+        let com = playRound(playerSelectionCap, comselect);
+       
+        console.log(`Player: ${playerSelectionCap} | Computer: ${comselect}`)
         console.log(com);
 
         // condition checking of the round winner
         if(playerWinsTheRound === true && compWinsTheRound === false){
             scoreOfPlayer++;
             console.log("+1 point for player")
-        } else if (compWinsTheRound === true && playerWinsTheRound === false) {
+        } else if (playerWinsTheRound === false && compWinsTheRound === true){
             scoreOfComputer++;
-            console.log("+1 point for computer")
+           console.log("+1 point for computer")
         } 
         
         // outputs the current score
@@ -77,8 +82,7 @@ function game(){
     
 }
 
-const playerSelection = "rock";
-const playerSelectionCap = playerSelection.toUpperCase();
+let playerSelection = "";
 const computerSelectionCap = computerPlay();
 let playerWinsTheRound = false;
 let compWinsTheRound = false;
