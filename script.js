@@ -17,8 +17,7 @@ let scoreOfPlayer = 0, scoreOfComputer = 0; // tracks the score of the game
 function playRound (playerSelection, computerSelection){
     let compWinsTheRound = false;
     let playerWinsTheRound = false;
-    
-    
+
     if (playerSelection === "ROCK" && computerSelection === "SCISSORS" || 
         playerSelection === "PAPER" && computerSelection === "ROCK" ||
         playerSelection === "SCISSORS" && computerSelection === "PAPER"){
@@ -39,7 +38,6 @@ function playRound (playerSelection, computerSelection){
         results.textContent = `It's a TIE! Both are ${playerSelection}`;
     }
     else results.textContent = "Invalid Input!";
-    
 }
 
 
@@ -60,23 +58,39 @@ const computerSelection = document.querySelector('.selection.computer');
 
 buttons.forEach(button => {
     button.addEventListener('click', () =>{
+        scoreOfPlayerContainer.textContent = scoreOfPlayer;
+        scoreOfComContainer.textContent = scoreOfComputer;
         const compPlay = computerPlay();
+        
         if (button === btnRock){
             playRound('ROCK', compPlay);
-            playerSelection.textContent = 'ROCK';
-        
+            playerSelection.innerHTML = '<img src="images/rock.png" />'; 
+            
         }
         else if (button === btnPaper){
-            playRound('PAPER', compPlay);
-            playerSelection.textContent = 'PAPER';
+            playRound('PAPER', compPlay); 
+            playerSelection.innerHTML = '<img src="images/paper.png" />';           
         }
         else {
             playRound('SCISSORS', compPlay);
-            playerSelection.textContent = 'SCISSORS';
+            playerSelection.innerHTML = '<img src="images/scissors.png" />';           
         }
-        computerSelection.textContent = compPlay;
+
+        if (compPlay === 'ROCK'){
+            computerSelection.innerHTML = '<img src="images/rock.png" />'; 
+        } 
+        else if (compPlay === 'PAPER'){
+            computerSelection.innerHTML = '<img src="images/paper.png"/>';
+        }
+        else computerSelection.innerHTML = '<img src="images/scissors.png"/>';          
     });
 });
+
+
+
+
+
+
 
 
 

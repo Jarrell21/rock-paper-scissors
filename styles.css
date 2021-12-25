@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  background-color: aqua;
+  background-color: burlywood;
   width: 100%;
   text-align: center;
   font-size: 2em;
@@ -39,7 +39,7 @@ main {
 }
 
 .title {
-  background-color: aqua;
+  background-color: burlywood;
   width: 100%;
   text-align: center;
   padding: 10px;
@@ -48,11 +48,11 @@ main {
 }
 
 .score {
-  background-color: darkkhaki;
-  font-size: 1.3em;
+  background-color: dimgre;
+  font-size: 2em;
   text-align: center;
-  width: 100px;
-  padding: 30px 10px;
+  width: 95%;
+  padding: 10px 0;
   margin: 10px 0;
   border-radius: 10px;
 }
@@ -60,7 +60,7 @@ main {
 .selection {
   width: 95%;
   flex: 1;
-  background-color: darkkhaki;
+  background-color: dimgrey;
   text-align: center;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -69,13 +69,19 @@ main {
   align-items: center;
 }
 
+.selection img {
+  border-radius: 10px;
+  width: 60%;
+  height: 60%;
+}
+
 .results {
   text-align: center;
   font-size: 1.5em;
 }
 
 .results {
-  background-color: aqua;
+  background-color: burlywood;
   width: max-content;
   margin: auto;
   padding: 20px 100px;
