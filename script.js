@@ -49,18 +49,33 @@ const btnPaper = document.querySelector('#paper');
 const btnScissors = document.querySelector('#scissors');
 const buttons = document.querySelectorAll('button');
 
+const main = document.querySelector('main');
 const scoreOfPlayerContainer = document.querySelector('.score.player');
 const scoreOfComContainer = document.querySelector('.score.computer');
-
 const results = document.querySelector('.results');
 const playerSelection = document.querySelector('.selection.player');
 const computerSelection = document.querySelector('.selection.computer');
+
+const playAgainBtn = document.createElement('button');
+playAgainBtn.classList.add('playAgainBtn');
+playAgainBtn.textContent = 'Play Again';
+
+const rounds = 3;
+
 
 buttons.forEach(button => {
     button.addEventListener('click', () =>{
         scoreOfPlayerContainer.textContent = scoreOfPlayer;
         scoreOfComContainer.textContent = scoreOfComputer;
+
+        
         const compPlay = computerPlay();
+
+        if(scoreOfPlayer === rounds || scoreOfComputer === rounds){
+            main.appendChild(playAgainBtn);
+            results.textContent = 'WIN';
+            return;
+        }
         
         if (button === btnRock){
             playRound('ROCK', compPlay);
@@ -71,7 +86,7 @@ buttons.forEach(button => {
             playRound('PAPER', compPlay); 
             playerSelection.innerHTML = '<img src="images/paper.png" />';           
         }
-        else {
+        else if(button === btnScissors){
             playRound('SCISSORS', compPlay);
             playerSelection.innerHTML = '<img src="images/scissors.png" />';           
         }
@@ -85,6 +100,7 @@ buttons.forEach(button => {
         else computerSelection.innerHTML = '<img src="images/scissors.png"/>';          
     });
 });
+
 
 
 

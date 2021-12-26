@@ -26,8 +26,8 @@ main {
   display: flex;
   justify-content: space-evenly;
   gap: 50px;
-  width: 900px;
-  height: 60vh;
+  width: 800px;
+  height: 50vh;
   margin: 10px 0;
 }
 .card {
@@ -91,6 +91,7 @@ main {
 .buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
@@ -110,4 +111,29 @@ button {
 button:hover {
   cursor: pointer;
   border: solid black 2px;
+}
+
+.select-rounds {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 10px;
+  font-size: 1.5em;
+  background-color: burlywood;
+  width: 60%;
+}
+
+.select-rounds > label {
+}
+#noOfRoundSelect {
+}
+
+.playAgainBtn {
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  font-size: 2em;
+  background-color: yellow;
 }
