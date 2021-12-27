@@ -13,15 +13,12 @@ function computerPlay () {
 
 let scoreOfPlayer = 0, scoreOfComputer = 0; // tracks the score of the game
 
-//Create a function that plays a single round of Rock Paper Scissors
-function playRound (playerSelection, computerSelection){
-    let compWinsTheRound = false;
-    let playerWinsTheRound = false;
-
+//Create a function that plays Rock Paper Scissors game
+function play (playerSelection, computerSelection){
+    
     if (playerSelection === "ROCK" && computerSelection === "SCISSORS" || 
         playerSelection === "PAPER" && computerSelection === "ROCK" ||
         playerSelection === "SCISSORS" && computerSelection === "PAPER"){
-        playerWinsTheRound = true;
         scoreOfPlayer++;
         scoreOfPlayerContainer.textContent = scoreOfPlayer;
         results.textContent = `Player SCORES! ${playerSelection} beats ${computerSelection}`; 
@@ -29,7 +26,6 @@ function playRound (playerSelection, computerSelection){
     else if (playerSelection === "ROCK"  && computerSelection === "PAPER" ||
             playerSelection === "PAPER" && computerSelection === "SCISSORS" ||
             playerSelection === "SCISSORS" && computerSelection === "ROCK"){
-        compWinsTheRound = true;
         scoreOfComputer++;
         scoreOfComContainer.textContent = scoreOfComputer;
         results.textContent = `Computer SCORES! ${computerSelection} beats ${playerSelection}`;
@@ -39,6 +35,18 @@ function playRound (playerSelection, computerSelection){
     }
     else results.textContent = "Invalid Input!";
 
+    // Displays the correct selection of the computer in the UI
+    if (computerSelection === 'ROCK'){
+        computerSelectionContainer.innerHTML = '<img src="images/rock.png" />'; 
+    } 
+    else if (computerSelection === 'PAPER'){
+        computerSelectionContainer.innerHTML = '<img src="images/paper.png"/>';
+    }
+    else if(computerSelection === 'SCISSORS') {
+        computerSelectionContainer.innerHTML = '<img src="images/scissors.png"/>';
+    }
+
+    // Declares the winner and Displays play again button after match
     if(scoreOfPlayer === rounds){
         results.textContent = 'Player wins the match!';
         main.appendChild(playAgainBtn);
@@ -49,67 +57,68 @@ function playRound (playerSelection, computerSelection){
     } 
 }
 
-
-
 // Interactivity in the UI
+const main = document.querySelector('main');
+const scoreOfPlayerContainer = document.querySelector('.score.player');
+const scoreOfComContainer = document.querySelector('.score.computer');
+const playerSelection = document.querySelector('.selection.player');
+const computerSelectionContainer = document.querySelector('.selection.computer');
+const results = document.querySelector('.results');
 
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
 const btnScissors = document.querySelector('#scissors');
-const buttons = document.querySelectorAll('button');
-
-const main = document.querySelector('main');
-const scoreOfPlayerContainer = document.querySelector('.score.player');
-const scoreOfComContainer = document.querySelector('.score.computer');
-const results = document.querySelector('.results');
-const playerSelection = document.querySelector('.selection.player');
-const computerSelection = document.querySelector('.selection.computer');
+const buttons = document.querySelectorAll('.buttons');
 
 const playAgainBtn = document.createElement('button');
 playAgainBtn.classList.add('playAgainBtn');
 playAgainBtn.textContent = 'Play Again';
 
-const rounds = 3;
 
+// Rock Paper Scissors Selection Functionality
+const rounds = 5;
 
 buttons.forEach(button => {
     
-
     button.addEventListener('click', () =>{
-        scoreOfPlayerContainer.textContent = scoreOfPlayer;
-        scoreOfComContainer.textContent = scoreOfComputer;
-
         
-        const compPlay = computerPlay();
-
-        if (scoreOfPlayer === rounds || scoreOfComputer === rounds){
+        if (scoreOfPlayer === rounds || 
+            scoreOfComputer === rounds){
             return;
         }
+
+        scoreOfPlayerContainer.textContent = scoreOfPlayer;
+        scoreOfComContainer.textContent = scoreOfComputer;
+        const compPlay = computerPlay();
         
         if (button === btnRock){
-            playRound('ROCK', compPlay);
+            play('ROCK', compPlay);
             playerSelection.innerHTML = '<img src="images/rock.png" />'; 
             
         }
         else if (button === btnPaper){
-            playRound('PAPER', compPlay); 
+            play('PAPER', compPlay); 
             playerSelection.innerHTML = '<img src="images/paper.png" />';           
         }
         else if(button === btnScissors){
-            playRound('SCISSORS', compPlay);
+            play('SCISSORS', compPlay);
             playerSelection.innerHTML = '<img src="images/scissors.png" />';           
         }
-
-        if (compPlay === 'ROCK'){
-            computerSelection.innerHTML = '<img src="images/rock.png" />'; 
-        } 
-        else if (compPlay === 'PAPER'){
-            computerSelection.innerHTML = '<img src="images/paper.png"/>';
-        }
-        else computerSelection.innerHTML = '<img src="images/scissors.png"/>';          
     });
 });
 
+
+// Play again button
+playAgainBtn.addEventListener('click', () => {
+    scoreOfComputer = 0;
+    scoreOfComContainer.textContent = 0;
+    scoreOfPlayer = 0;
+    scoreOfPlayerContainer.textContent = 0;
+    results.textContent  = 'CHOOSE YOUR WEAPON!';
+    playerSelection.innerHTML = '';
+    computerSelectionContainer.innerHTML = '';
+    main.removeChild(playAgainBtn);
+});
 
 
 

@@ -12,29 +12,29 @@ body {
 }
 
 header {
-  background-color: burlywood;
+  background-color: dimgrey;
+  color: white;
   width: 100%;
   text-align: center;
   font-size: 2em;
   padding: 20px;
 }
 
-main {
-}
-
 #cards {
   display: flex;
   justify-content: space-evenly;
-  gap: 50px;
+  gap: 20px;
   width: 800px;
   height: 50vh;
   margin: 10px 0;
 }
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: solid black 2px;
+  border-radius: 10px;
   flex: 1;
 }
 
@@ -45,16 +45,15 @@ main {
   padding: 10px;
   font-size: 1.5em;
   border-bottom: solid black 2px;
+  border-start-start-radius: 10px;
+  border-start-end-radius: 10px;
 }
 
 .score {
-  background-color: dimgre;
   font-size: 2em;
   text-align: center;
   width: 95%;
-  padding: 10px 0;
   margin: 10px 0;
-  border-radius: 10px;
 }
 
 .selection {
@@ -106,6 +105,7 @@ button {
   align-items: center;
   padding: 0;
   margin-top: 10px;
+  border: none;
 }
 
 button:hover {
@@ -113,26 +113,21 @@ button:hover {
   border: solid black 2px;
 }
 
-.select-rounds {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.numberOfRounds {
+  text-align: center;
   margin: 20px auto;
   padding: 10px;
   border-radius: 5px;
-  gap: 10px;
   font-size: 1.5em;
   background-color: burlywood;
   width: 60%;
-}
-
-#noOfRoundSelect {
-  padding: 4px;
 }
 
 .playAgainBtn {
   margin: 20px auto 0 auto;
   padding: 10px;
   font-size: 2em;
-  background-color: yellow;
+  background-color: dimgrey;
+  color: white;
+  border-radius: 5px;
 }
