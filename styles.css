@@ -126,9 +126,8 @@ button:hover {
   width: 60%;
 }
 
-.select-rounds > label {
-}
 #noOfRoundSelect {
+  padding: 4px;
 }
 
 .playAgainBtn {

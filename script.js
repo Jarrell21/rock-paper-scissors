@@ -38,6 +38,15 @@ function playRound (playerSelection, computerSelection){
         results.textContent = `It's a TIE! Both are ${playerSelection}`;
     }
     else results.textContent = "Invalid Input!";
+
+    if(scoreOfPlayer === rounds){
+        results.textContent = 'Player wins the match!';
+        main.appendChild(playAgainBtn);
+    }
+    else if (scoreOfComputer === rounds){
+        results.textContent = 'Computer wins the match!';
+        main.appendChild(playAgainBtn);
+    } 
 }
 
 
@@ -64,6 +73,8 @@ const rounds = 3;
 
 
 buttons.forEach(button => {
+    
+
     button.addEventListener('click', () =>{
         scoreOfPlayerContainer.textContent = scoreOfPlayer;
         scoreOfComContainer.textContent = scoreOfComputer;
@@ -71,9 +82,7 @@ buttons.forEach(button => {
         
         const compPlay = computerPlay();
 
-        if(scoreOfPlayer === rounds || scoreOfComputer === rounds){
-            main.appendChild(playAgainBtn);
-            results.textContent = 'WIN';
+        if (scoreOfPlayer === rounds || scoreOfComputer === rounds){
             return;
         }
         
