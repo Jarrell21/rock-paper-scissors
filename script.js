@@ -86,9 +86,7 @@ buttons.forEach(button => {
             scoreOfComputer === rounds){
             return;
         }
-
-        scoreOfPlayerContainer.textContent = scoreOfPlayer;
-        scoreOfComContainer.textContent = scoreOfComputer;
+        
         const compPlay = computerPlay();
         
         if (button === btnRock){

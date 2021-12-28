@@ -12,8 +12,6 @@ body {
 }
 
 header {
-  background-color: dimgrey;
-  color: white;
   width: 100%;
   text-align: center;
   font-size: 2em;
@@ -33,7 +31,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid black 2px;
   border-radius: 10px;
   flex: 1;
 }
@@ -43,8 +40,7 @@ header {
   width: 100%;
   text-align: center;
   padding: 10px;
-  font-size: 1.5em;
-  border-bottom: solid black 2px;
+  font-size: 1.3em;
   border-start-start-radius: 10px;
   border-start-end-radius: 10px;
 }
@@ -52,17 +48,19 @@ header {
 .score {
   font-size: 2em;
   text-align: center;
-  width: 95%;
-  margin: 10px 0;
+  width: 100%;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .selection {
-  width: 95%;
+  width: 100%;
   flex: 1;
   background-color: dimgrey;
   text-align: center;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-end-start-radius: 10px;
+  border-end-end-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,16 +72,23 @@ header {
   height: 60%;
 }
 
-.results {
+.numberOfRounds {
   text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: burlywood;
+  border-radius: 5px;
   font-size: 1.5em;
+  width: 60%;
 }
 
 .results {
+  text-align: center;
+  font-size: 1.5em;
+  width: 60%;
+  margin: 0 auto 10px auto;
+  padding: 10px;
   background-color: burlywood;
-  width: max-content;
-  margin: auto;
-  padding: 20px 100px;
   border-radius: 5px;
 }
 
@@ -111,16 +116,6 @@ button {
 button:hover {
   cursor: pointer;
   border: solid black 2px;
-}
-
-.numberOfRounds {
-  text-align: center;
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1.5em;
-  background-color: burlywood;
-  width: 60%;
 }
 
 .playAgainBtn {
