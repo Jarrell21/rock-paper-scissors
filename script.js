@@ -49,10 +49,12 @@ function play (playerSelection, computerSelection){
     // Declares the winner and Displays play again button after match
     if(scoreOfPlayer === rounds){
         results.textContent = 'Player wins the match!';
+        results.style.background = '#9acd32';
         main.appendChild(playAgainBtn);
     }
     else if (scoreOfComputer === rounds){
         results.textContent = 'Computer wins the match!';
+        results.style.background = 'burlywood';
         main.appendChild(playAgainBtn);
     } 
 }
@@ -113,6 +115,7 @@ playAgainBtn.addEventListener('click', () => {
     scoreOfPlayer = 0;
     scoreOfPlayerContainer.textContent = 0;
     results.textContent  = 'CHOOSE YOUR WEAPON!';
+    results.style.background = '#dcdcdc';
     playerSelection.innerHTML = '';
     computerSelectionContainer.innerHTML = '';
     main.removeChild(playAgainBtn);
