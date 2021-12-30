@@ -21,6 +21,7 @@ function play (playerSelection, computerSelection){
         playerSelection === "SCISSORS" && computerSelection === "PAPER"){
         scoreOfPlayer++;
         scoreOfPlayerContainer.textContent = scoreOfPlayer;
+        results.style.background = '#9acd32';
         results.textContent = `Player SCORES! ${playerSelection} beats ${computerSelection}`; 
     } 
     else if (playerSelection === "ROCK"  && computerSelection === "PAPER" ||
@@ -28,9 +29,11 @@ function play (playerSelection, computerSelection){
             playerSelection === "SCISSORS" && computerSelection === "ROCK"){
         scoreOfComputer++;
         scoreOfComContainer.textContent = scoreOfComputer;
+        results.style.background = 'burlywood';
         results.textContent = `Computer SCORES! ${computerSelection} beats ${playerSelection}`;
     } 
     else if (playerSelection === computerSelection){
+        results.style.background = '#dcdcdc';
         results.textContent = `It's a TIE! Both are ${playerSelection}`;
     }
     else results.textContent = "Invalid Input!";
